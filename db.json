@@ -1,0 +1,23 @@
+{
+    "tablesdata": [
+      {
+        "id": 1,
+        "compid": 1,
+        "name": "Accordian",
+        "updateon": "1 Jan"
+      },
+      {
+        "id": 2,
+        "compid": 2,
+        "name": "Button",
+        "updateon": "1 Jan"
+      },
+      {
+        "id": 3,
+        "compid": 2,
+        "name": "Button",
+        "updateon": "3 Jan"
+      }
+    ]
+  }
+  

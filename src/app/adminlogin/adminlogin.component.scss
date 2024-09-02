@@ -1,0 +1,31 @@
+h2,h3,div{
+    margin: 0px;
+    padding: 0px;
+}
+.adminlogin-container{
+   background-color: #212529;
+  }
+.inner-container{
+    display: flex;
+    flex-direction: column;
+     justify-content:center ;
+     align-items: center;
+     height: 100vh;
+     color: #fff;
+}
+
+.login-container{
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}h2{
+    margin-bottom: 10px;
+}
+input{
+    width: 21vw;
+}
+button{
+    width: 100px;
+    margin-top:10px;
+   }

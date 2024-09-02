@@ -1,0 +1,67 @@
+<div class="allcomponents-container">
+    <div class="allcomponents">
+      <p class="h2">All components</p>
+  
+      <nav a ria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Components</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Component Variations
+          </li>
+        </ol>
+      </nav>
+      <div class="container my-3">
+        <div class="card">
+          <div class="card-header">Component Variations*</div>
+          <div class="card-body">
+            <div class="row align-items-center">
+              <!-- Input on the left side -->
+              <div class="col-md-8">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter text here"
+                />
+              </div>
+              <!-- Button on the right side -->
+              <div class="col-md-4">
+                <button class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grey-line"></div>
+  <div class="allcomponents-container">
+    <div class="allcomponents-table" *ngIf="tablesdatalist.length>0">
+         <table datatable [dtOptions]="dtOptions" class="table table-striped">
+        <thead>
+          <tr>
+            <th colspan="5" class="table-heading">Component Variations</th>
+          </tr>
+          <tr>
+            <th>#</th>
+            <th>Variation ID</th>
+            <th>Variation Name</th>
+            <th>Update On</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tablesdatalist">
+            <td>{{item.id}}</td>
+            <td>{{item.compid}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.updateon}}</td>
+            <td>
+              <button type="button" class="btn btn-warning">Edit</button>
+              <button type="button" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+          </table>
+    </div>
+  </div>
+  

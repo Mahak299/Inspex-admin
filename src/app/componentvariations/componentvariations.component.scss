@@ -1,0 +1,35 @@
+.allcomponents-container
+{
+    padding:20px 0px 0px 30px;
+    width:100%;
+}
+.container, .my-3{
+    padding: 0px;
+}
+.card{
+    margin-right: 30px;
+}
+
+.grey-line {
+    background-color: #ccc; 
+    height: 1px; 
+    width: 100%; 
+    margin: 25px 0px; 
+  }
+  .allcomponents-table{
+    margin-right: 30px;
+  }
+  td,th{
+    border: 1px solid #ccc;
+  }
+  button{
+    margin-left: 5px;
+  }
+  .table-heading{
+    font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #f8f9fa; /* Light background color */
+  padding: 10px 0;
+  }
+ 

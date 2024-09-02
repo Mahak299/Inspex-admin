@@ -1,0 +1,17 @@
+.sidebar{
+    display: flex;
+    flex-direction: row;
+}
+.sidepanel{ 
+   width:15%;
+     height: 100vh;
+    background-color: #212529;
+    position: fixed;
+    height: 100%;
+    margin-top: 57.6px;
+}
+.main{
+    flex: 1;
+    margin-top: 57.6px;
+    margin-left:227.88px;
+}
