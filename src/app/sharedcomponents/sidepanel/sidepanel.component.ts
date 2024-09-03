@@ -7,14 +7,9 @@ import { Router } from '@angular/router';
   styleUrl: './sidepanel.component.scss'
 })
 export class SidepanelComponent {
-  constructor(private router:Router){}
-  onClickAllcomponents(){
-        this.router.navigate(['/allcomponents']);
-  }
-  onClickComponentTypes(){
-    this.router.navigate(['/componenttypes'])
-  }
-  onClickComponentVariations(){
-    this.router.navigate(['/componentvariations'])
+  constructor(private router: Router) { }
+
+  onClickNavigate = (route: string) => {
+    this.router.navigate([route]);
   }
 }

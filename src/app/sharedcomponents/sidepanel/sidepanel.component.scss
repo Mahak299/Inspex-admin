@@ -1,7 +1,28 @@
-.accordion-button,.accordion-collapse,.accordion-button:not(.collapsed) {
+.accordion-button,
+.accordion-collapse,
+.accordion-button:not(.collapsed) {
     background-color: #212529;
-    color:#fff !important;
+    color: #fff !important;
 }
-.accordion-body:hover{
-    cursor: pointer;
+
+
+.accordion-button {
+
+    box-shadow: none;
+
+    &::after {
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+    }
+    
+}
+
+.accordion-body-container {
+    padding: .45rem 1.8rem;
+    &:hover{
+        cursor: pointer;
+    }
+
+    .accordion-links{
+        font-size: 0.75rem;
+    }
 }
