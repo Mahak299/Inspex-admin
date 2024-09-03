@@ -1,0 +1,37 @@
+.allcomponents-container {
+    padding: 1rem;
+    width: 100%;
+}
+
+.container,
+.my-3 {
+    padding: 0px;
+}
+
+.grey-line {
+    background-color: #ccc;
+    height: 1px;
+    width: 100%;
+    margin: 1.56rem 0px;
+}
+
+.allcomponents-table {
+    margin-right: 1.87rem;
+}
+
+td,
+th {
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-left: 5px;
+}
+
+.table-heading {
+    font-size: 1.126rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: .6125rem 0;
+}
