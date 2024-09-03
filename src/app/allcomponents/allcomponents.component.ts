@@ -6,7 +6,7 @@ import { Config } from 'datatables.net';
 
 
 @Component({
-  selector: 'app-allcomponents',
+  selector: 'app-all-components',
   templateUrl: './allcomponents.component.html',
   styleUrl: './allcomponents.component.scss',
   })
@@ -20,10 +20,9 @@ export class AllcomponentsComponent implements OnInit{
       pagingType: 'simple_numbers',
       lengthChange:false,
       processing: true,
-      paging:false,
-      ordering:false,
+
       language:{
-        searchPlaceholder:'Enter Component'
+        searchPlaceholder:'Search Component'
       }
     };
     this.loadtablesdata();

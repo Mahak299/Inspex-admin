@@ -1,0 +1,26 @@
+@import "../../assets/styles/all-components-global.scss";
+.dropdown-container {
+    margin-bottom: 1.25rem;
+  }
+  button
+  {
+    margin-left: 0px;
+  }
+  .actions{
+    margin-left:.31rem;
+  }
+  .form-label {
+    display: block;
+    margin-bottom: 0.31rem;
+    font-weight: bold;
+  }
+.margin-dropdown{
+    margin-right:2rem;
+}
+  .mt-4 {
+    margin-top: 1.56rem; /* Adjust spacing as needed */
+  }
+  
+  .btn {
+    min-width: 5rem; /* Adjust the minimum width of buttons */
+  }
