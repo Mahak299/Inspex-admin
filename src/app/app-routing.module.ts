@@ -9,6 +9,9 @@ import { LayoutComponent } from './layout/layout.component';
 import { ComponentMappingComponent } from './component-mapping/component-mapping.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
 import { DefaultTemplateComponent } from './default-template/default-template.component';
+import { AllUsersComponent } from './all-users/all-users.component';
+import { UserLibraryComponent } from './user-library/user-library.component';
+import { UserTemplateComponent } from './user-template/user-template.component';
 
 const routes: Routes = [
   { path : 'login',component:AdminloginComponent},
@@ -18,7 +21,10 @@ const routes: Routes = [
   {path: 'component-variations',component:ComponentvariationsComponent},
 {path:'component-mapping',component:ComponentMappingComponent},
 {path:'component-docs',component:ComponentDocsComponent},
-{path:'default-template',component:DefaultTemplateComponent}]}
+{path:'default-template',component:DefaultTemplateComponent},
+{path:'all-users',component:AllUsersComponent},
+{path:'user-library',component:UserLibraryComponent},
+{path:'user-template',component:UserTemplateComponent}]}
 ];
 
 @NgModule({
