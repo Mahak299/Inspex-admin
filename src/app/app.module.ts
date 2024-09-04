@@ -14,6 +14,7 @@ import { ComponentvariationsComponent } from './componentvariations/componentvar
 import { LayoutComponent } from './layout/layout.component';
 import { ComponentMappingComponent } from './component-mapping/component-mapping.component';
 import { ComponentDocsComponent } from './component-docs/component-docs.component';
+import { DefaultTemplateComponent } from './default-template/default-template.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ComponentDocsComponent } from './component-docs/component-docs.componen
     LayoutComponent,
     ComponentMappingComponent,
     ComponentDocsComponent,
+    DefaultTemplateComponent,
   ],
   imports: [
     BrowserModule,

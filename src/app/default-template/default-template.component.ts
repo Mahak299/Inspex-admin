@@ -5,11 +5,11 @@ import { tablesdata } from '../tablesdata';
 import { Config } from 'datatables.net';
 
 @Component({
-  selector: 'app-component-mapping',
-  templateUrl: './component-mapping.component.html',
-  styleUrl: './component-mapping.component.scss'
+  selector: 'app-default-template',
+  templateUrl: './default-template.component.html',
+  styleUrl: './default-template.component.scss'
 })
-export class ComponentMappingComponent implements OnInit{
+export class DefaultTemplateComponent implements OnInit{
   
   tablesdatalist:tablesdata[]=[];
   dtOptions: Config = {};
@@ -21,7 +21,7 @@ export class ComponentMappingComponent implements OnInit{
       processing: true,
 
       language:{
-        searchPlaceholder:'Search Mapping'
+        searchPlaceholder:'Search Template'
       }
     };
     this.loadtablesdata();
