@@ -12,6 +12,9 @@ import { provideHttpClient } from '@angular/common/http';
 import { ComponenttypesComponent } from './componenttypes/componenttypes.component';
 import { ComponentvariationsComponent } from './componentvariations/componentvariations.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ComponentMappingComponent } from './component-mapping/component-mapping.component';
+import { ComponentDocsComponent } from './component-docs/component-docs.component';
+import { DefaultTemplateComponent } from './default-template/default-template.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { LayoutComponent } from './layout/layout.component';
     ComponenttypesComponent,
     ComponentvariationsComponent,
     LayoutComponent,
+    ComponentMappingComponent,
+    ComponentDocsComponent,
+    DefaultTemplateComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 .header
 {
-    padding: 10px 15px;
+    padding: .74rem .937rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -9,6 +9,7 @@
     color: #fff;
     position: fixed;
     width: 100%;
+    z-index: 9999;
 }
 .h4{
     color: #E86C00  ;

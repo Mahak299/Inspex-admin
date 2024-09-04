@@ -4,7 +4,7 @@ import { tablesdata } from '../tablesdata';
 import { Config } from 'datatables.net';
 
 @Component({
-  selector: 'app-componenttypes',
+  selector: 'app-component-types',
   templateUrl: './componenttypes.component.html',
   styleUrl: './componenttypes.component.scss'
 })
@@ -18,10 +18,8 @@ export class ComponenttypesComponent implements OnInit{
       pagingType: 'simple_numbers',
       lengthChange:false,
       processing: true,
-      paging:false,
-      ordering:false,
-      language:{
-        searchPlaceholder:'Enter Component'
+            language:{
+        searchPlaceholder:'Component Type'
       }
     };
     this.loadtablesdata();

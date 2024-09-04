@@ -1,0 +1,106 @@
+<div class="allcomponents-container">
+    <div class="allcomponents">
+      <p class="h2">Component Mapping</p>
+  
+      <nav a ria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Components</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Component Mapping
+          </li>
+        </ol>
+      </nav>
+      <div class="container my-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <!-- First Dropdown on the Left -->
+              <div class="margin-dropdown">
+                <label for="dropdownLeft" class="form-label">Component Name:</label>
+                <div class="btn-group">
+                  <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Component Name
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownLeft">
+                    <li><button class="dropdown-item" type="button">Action</button></li>
+                    <li><button class="dropdown-item" type="button">Another action</button></li>
+                    <li><button class="dropdown-item" type="button">Something else here</button></li>
+                  </ul>
+                </div>
+              </div>
+      
+              <!-- Second Dropdown in the Middle -->
+              <div class="margin-dropdown" >
+                <label for="dropdownMiddle" class="form-label">Component Type:</label>
+                <div class="btn-group">
+                  <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Component Type
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMiddle">
+                    <li><button class="dropdown-item" type="button">Action</button></li>
+                    <li><button class="dropdown-item" type="button">Another action</button></li>
+                    <li><button class="dropdown-item" type="button">Something else here</button></li>
+                  </ul>
+                </div>
+              </div>
+      
+              <!-- Third Dropdown on the Right -->
+              <div class="margin-dropdown">
+                <label for="dropdownRight" class="form-label">Component Variation:</label>
+                <div class="btn-group">
+                  <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Component Variation
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownRight">
+                    <li><button class="dropdown-item" type="button">Action</button></li>
+                    <li><button class="dropdown-item" type="button">Another action</button></li>
+                    <li><button class="dropdown-item" type="button">Something else here</button></li>
+                  </ul>
+                </div>
+              </div>
+      
+              <!-- Submit Button to the Right -->
+              
+            </div>
+            <div class="">
+              <button type="button" class="btn btn-primary mt-4">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+  <div class="grey-line"></div>
+  <div class="allcomponents-container">
+    <div class="allcomponents-table" *ngIf="tablesdatalist.length>0">
+         <table datatable [dtOptions]="dtOptions" class="table table-striped">
+        <thead>
+          <tr>
+            <th colspan="5" class="table-heading">Component Mapping</th>
+          </tr>
+          <tr>
+            <th>#</th>
+            <th>Component Name</th>
+            <th>Component Type</th>
+            <th>Component Variations</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tablesdatalist">
+            <td>{{item.id}}</td>
+            <td>{{item.compid}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.updateon}}</td>
+            <td>
+              <button type="button" class="btn btn-warning actions">Edit</button>
+              <button type="button" class="btn btn-danger actions">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+          </table>
+    </div>
+  </div>
+  

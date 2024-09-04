@@ -1,6 +1,7 @@
 .allcomponents-container {
     padding: 1rem;
     width: 100%;
+    margin-bottom: 2rem;
 }
 
 .container,
@@ -10,9 +11,9 @@
 
 .grey-line {
     background-color: #ccc;
-    height: 1px;
+    height: 0.06rem;
     width: 100%;
-    margin: 1.56rem 0px;
+    margin: 1rem 0px;
 }
 
 .allcomponents-table {
@@ -21,13 +22,12 @@
 
 td,
 th {
-    border: 1px solid #ccc;
+    border: .06rem solid #ccc;
 }
 
 button {
-    margin-left: 5px;
+    margin-left: .31rem;
 }
-
 .table-heading {
     font-size: 1.126rem;
     font-weight: bold;

@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AllcompService } from '../allcomp.service';
 import { tablesdata } from '../tablesdata';
 import { Config } from 'datatables.net';
-import { AllcompService } from '../allcomp.service';
 
 @Component({
-  selector: 'app-component-variations',
-  templateUrl: './componentvariations.component.html',
-  styleUrl: './componentvariations.component.scss'
+  selector: 'app-default-template',
+  templateUrl: './default-template.component.html',
+  styleUrl: './default-template.component.scss'
 })
-export class ComponentvariationsComponent implements OnInit{
+export class DefaultTemplateComponent implements OnInit{
   
   tablesdatalist:tablesdata[]=[];
   dtOptions: Config = {};
@@ -18,9 +19,9 @@ export class ComponentvariationsComponent implements OnInit{
       pagingType: 'simple_numbers',
       lengthChange:false,
       processing: true,
-      
+
       language:{
-        searchPlaceholder:'Enter Variation'
+        searchPlaceholder:'Search Template'
       }
     };
     this.loadtablesdata();
