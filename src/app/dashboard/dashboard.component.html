@@ -1,11 +1,103 @@
-<!-- <app-header></app-header>
+<div class="dashboard-container">
+  <!-- Dashboard Heading -->
+  <h2 class="dashboard-heading">Dashboard</h2>
 
-<div class="sidebar">
-  <div class="sidepanel">
-    <app-sidepanel></app-sidepanel>
-  </div> -->
-  <div class="dashboard-content">
-    <h2>Welcome to the Dashboard</h2>
-    <!-- Dashboard content goes here -->
+  <!-- Cards Section -->
+  <div class="row">
+    <!-- First Card (Total Users) -->
+    <div class="col-sm-4">
+      <div class="card">
+        <div
+          class="card-body d-flex justify-content-between align-items-center"
+        >
+          <div>
+            <p class="card-text">50</p>
+            <h5 class="card-title">Total Users</h5>
+          </div>
+          <!-- Icon or Image for Users -->
+          <i class="fa fa-users card-icon"></i>
+          <!-- FontAwesome icon for users -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Card (Total Library Downloads) -->
+    <div class="col-sm-4">
+      <div class="card">
+        <div
+          class="card-body d-flex justify-content-between align-items-center"
+        >
+          <div>
+            <p class="card-text">1200</p>
+            <h5 class="card-title">Total Library Downloads</h5>
+          </div>
+          <!-- Icon or Image for Library Downloads -->
+          <i class="fa fa-download card-icon"></i>
+          <!-- FontAwesome icon for downloads -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Third Card (Total Domain Lives) -->
+    <div class="col-sm-4">
+      <div class="card">
+        <div
+          class="card-body d-flex justify-content-between align-items-center"
+        >
+          <div>
+            <p class="card-text">15</p>
+            <h5 class="card-title">Total Domain Lives</h5>
+          </div>
+          <!-- Icon or Image for Domain Lives -->
+          <i class="fa fa-globe card-icon"></i>
+          <!-- FontAwesome icon for domain lives -->
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+<div class="grey-line"></div>
+<div class="allcomponents-container">
+  <div class="allcomponents-table">
+    <table datatable [dtOptions]="dtOptions" class="table table-striped">
+      <thead>
+        <tr>
+          <th colspan="6" class="table-heading">User Templates</th>
+        </tr>
+        <tr>
+          <th>#</th>
+          <th>Component Name</th>
+          <th>Component Type</th>
+          <th>Component Variation</th>
+          <th>Updated At</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Button</td>
+          <td>Primary button</td>
+          <td>Variation</td>
+          <td>9 Sept 2024</td>
+          <td>
+            <button type="button" class="btn btn-warning">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
 
+        <tr>
+          <td>2</td>
+          <td>Button</td>
+          <td>secondary button</td>
+          <td>Variation</td>
+          <td>9 Sept 2024</td>
+          <td>
+            <button type="button" class="btn btn-warning">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

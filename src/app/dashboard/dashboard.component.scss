@@ -1,3 +1,48 @@
-.dashboard-content{
-    margin-left: 5rem;
+@import "../../assets/styles/all-components-global.scss";
+.allusers{
+    margin-bottom: 0px;
+}
+.alluserspadding{
+    padding-top: 0px;
+}
+.dashboard-container {
+    padding: 1rem;
+}
+
+.dashboard-heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: left; /* Align heading to the left */
+}
+
+.card {
+    margin-bottom: 20px;
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+   
+}
+
+.card-text {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #6c757d; /* Grey color for icons */
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
 }
