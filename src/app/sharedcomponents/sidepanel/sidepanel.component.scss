@@ -4,7 +4,9 @@
     background-color: #212529;
     color: #fff !important;
 }
-
+#flush-headingDasboard .accordion-button::after {
+    display: none;
+}
 
 .accordion-button {
 
