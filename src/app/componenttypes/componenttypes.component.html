@@ -57,16 +57,16 @@
             <td>{{item.updateon}}</td>
             <td>
               <button type="button" class="btn btn-warning actions"(click)="openEditPopup(content)">Edit</button>
-              <button type="button" class="btn btn-danger actions">Delete</button>
+              <button type="button" class="btn btn-danger actions" (click)="openDeletePopup('Are you sure you want to delete this type?')">Delete</button>
             </td>
-          </tr>
+           </tr>
           </tbody>
           </table>
     </div>
   </div>
   <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title">Component Types</h4>
+      <h4 class="modal-title">Component Type</h4>
       <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
@@ -78,7 +78,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Cancel</button>
-      <button type="button" class="btn btn-success" (click)="onSubmit()">Submit</button>
+      <button type="button" class="btn btn-success" (click)="onSubmit()">Update</button>
        </div>
   </ng-template>   
   

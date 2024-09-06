@@ -3,6 +3,7 @@ import { tablesdata } from '../tablesdata';
 import { Config } from 'datatables.net';
 import { AllcompService } from '../allcomp.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DeletePopupComponent } from '../sharedcomponents/delete-popup/delete-popup.component';
 
 @Component({
   selector: 'app-component-variations',
@@ -15,6 +16,11 @@ export class ComponentvariationsComponent implements OnInit{
    openEditPopup(content: TemplateRef<any>) {
 		this.modalService.open(content, { centered: true });
 	}
+  openDeletePopup(message: string) {
+    const modalRef = this.modalService.open(DeletePopupComponent, { centered: true });
+    modalRef.componentInstance.message = message;
+  }
+  
   dtOptions: Config = {};
   constructor(private allcompservice:AllcompService,private modalService: NgbModal){}
 

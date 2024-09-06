@@ -110,7 +110,7 @@
             <td>{{item.updateon}}</td>
             <td>
               <button type="button" class="btn btn-warning actions"(click)="openEditPopup(content)">Edit</button>
-              <button type="button" class="btn btn-danger actions">Delete</button>
+              <button type="button" class="btn btn-danger actions"(click)="openDeletePopup('Are you sure you want to delete this template?')">Delete</button>
             </td>
           </tr>
           </tbody>
@@ -119,11 +119,28 @@
   </div>
   <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title">Component Docs</h4>
+      <h4 class="modal-title">Default Template</h4>
       <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
        
+      <div class="container my-3">
+        
+        <!-- Larger Textarea for Component Description -->
+        <div class="form-group mt-3">
+          <label for="componentDescription" class="fw-bold">Default Config</label>
+          <textarea class="form-control w-100" id="componentDescription" rows="6" placeholder="Type Component description"></textarea>
+        </div>
+      </div>
+      <div class="container my-3">
+        
+        <!-- Larger Textarea for Component Description -->
+        <div class="form-group mt-3">
+          <label for="componentDescription" class="fw-bold">Component Config</label>
+          <textarea class="form-control w-100" id="componentDescription" rows="6" placeholder="Type Component description"></textarea>
+        </div>
+      </div>
+
         <div class="d-flex align-items-center">
           <!-- First Dropdown on the Left -->
           <div class="margin-dropdown">
@@ -177,6 +194,6 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Cancel</button>
-      <button type="button" class="btn btn-success" (click)="onSubmit()">Submit</button>
+      <button type="button" class="btn btn-success" (click)="onSubmit()">Update</button>
        </div>
   </ng-template> 
