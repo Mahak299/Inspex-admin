@@ -18,6 +18,7 @@ import { DefaultTemplateComponent } from './default-template/default-template.co
 import { AllUsersComponent } from './all-users/all-users.component';
 import { UserLibraryComponent } from './user-library/user-library.component';
 import { UserTemplateComponent } from './user-template/user-template.component';
+import { DeletePopupComponent } from './sharedcomponents/delete-popup/delete-popup.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { UserTemplateComponent } from './user-template/user-template.component';
     AllUsersComponent,
     UserLibraryComponent,
     UserTemplateComponent,
+    DeletePopupComponent,
   ],
   imports: [
     BrowserModule,

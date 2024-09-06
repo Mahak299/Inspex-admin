@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Config } from 'datatables.net';
 
 @Component({
@@ -8,8 +9,13 @@ import { Config } from 'datatables.net';
 })
 export class UserTemplateComponent implements OnInit{
   
-  dtOptions: Config = {};
  
+  openEditPopup(content: TemplateRef<any>) {
+		this.modalService.open(content, { centered: true });
+	}
+  dtOptions: Config = {};
+  constructor(private modalService: NgbModal){}
+
  ngOnInit(): void {
    this.dtOptions = {
      pagingType: 'simple_numbers',
@@ -21,5 +27,8 @@ export class UserTemplateComponent implements OnInit{
      }
    };
     }
- 
+    onSubmit() {
+      console.log('Saved changes');
+      this.modalService.dismissAll();
+    }
 }
