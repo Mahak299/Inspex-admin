@@ -4,6 +4,7 @@ import { AllcompService } from '../allcomp.service';
 import { tablesdata } from '../tablesdata';
 import { Config } from 'datatables.net';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DeletePopupComponent } from '../sharedcomponents/delete-popup/delete-popup.component';
 
 @Component({
   selector: 'app-component-mapping',
@@ -16,6 +17,10 @@ export class ComponentMappingComponent implements OnInit{
   openEditPopup(content: TemplateRef<any>) {
 		this.modalService.open(content, { centered: true,size:"lg" });
 	}
+  openDeletePopup(message: string) {
+    const modalRef = this.modalService.open(DeletePopupComponent, { centered: true });
+    modalRef.componentInstance.message = message;
+  }
   dtOptions: Config = {};
   constructor(private allcompservice:AllcompService,private modalService: NgbModal){}
 
@@ -26,7 +31,7 @@ export class ComponentMappingComponent implements OnInit{
       processing: true,
 
       language:{
-        searchPlaceholder:'Search Mapping'
+        searchPlaceholder:'Enter Mapping'
       }
     };
     this.loadtablesdata();

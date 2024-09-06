@@ -4,7 +4,7 @@ import { AllcompService } from '../allcomp.service';
 import { tablesdata } from '../tablesdata';
 import { Config } from 'datatables.net';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { DeletePopupComponent } from '../sharedcomponents/delete-popup/delete-popup.component';
 
 @Component({
   selector: 'app-all-components',
@@ -18,6 +18,11 @@ export class AllcomponentsComponent implements OnInit{
   openEditPopup(content: TemplateRef<any>) {
 		this.modalService.open(content, { centered: true });
 	}
+  openDeletePopup(message: string) {
+    const modalRef = this.modalService.open(DeletePopupComponent, { centered: true });
+    modalRef.componentInstance.message = message;
+  }
+  
   dtOptions: Config = {};
   constructor(private allcompservice:AllcompService,private modalService: NgbModal){}
   ngOnInit(): void {

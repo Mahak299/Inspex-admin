@@ -1,4 +1,6 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-delete-popup',
@@ -6,8 +8,8 @@ import { Component, TemplateRef } from '@angular/core';
   styleUrl: './delete-popup.component.scss'
 })
 export class DeletePopupComponent {
-  modalService: any;
-  openDeletePopup(content: TemplateRef<any>) {
-		this.modalService.open(content, { centered: true });
-	}
+  @Input() message:any;
+  constructor(public activeModal: NgbActiveModal) {}
+  
+   
 }
