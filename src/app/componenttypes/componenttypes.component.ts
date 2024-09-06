@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AllcompService } from '../allcomp.service';
 import { tablesdata } from '../tablesdata';
 import { Config } from 'datatables.net';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-component-types',
@@ -11,8 +12,13 @@ import { Config } from 'datatables.net';
 export class ComponenttypesComponent implements OnInit{
   
   tablesdatalist:tablesdata[]=[];
+
+  openEditPopup(content: TemplateRef<any>) {
+		this.modalService.open(content, { centered: true });
+	}
   dtOptions: Config = {};
-  constructor(private allcompservice:AllcompService){}
+  constructor(private allcompservice:AllcompService,private modalService: NgbModal){}
+
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'simple_numbers',
@@ -29,6 +35,10 @@ export class ComponenttypesComponent implements OnInit{
     {
       this.tablesdatalist=data;
     })
+  }
+  onSubmit() {
+    console.log('Saved changes');
+    this.modalService.dismissAll();
   }
 }
 

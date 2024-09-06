@@ -46,9 +46,9 @@
             <td>Variation</td>
             <td>9 Sept 2024</td>
             <td>
-                <button type="button" class="btn btn-warning">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-              </td>
+              <button type="button" class="btn btn-warning actions"(click)="openEditPopup(content)">Edit</button>
+              <button type="button" class="btn btn-danger actions">Delete</button>
+            </td>          
           </tr>
         </tbody>
         
@@ -56,3 +56,19 @@
     </div>
   </div>
   
+<ng-template #content let-modal>
+<div class="modal-header">
+<h4 class="modal-title">User Template</h4>
+<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+<p><input
+type="text"
+class="form-control"
+placeholder="Enter text here"/></p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Cancel</button>
+<button type="button" class="btn btn-success" (click)="onSubmit()">Submit</button>
+</div>
+</ng-template> 
