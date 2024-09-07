@@ -1,9 +1,9 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { AllcompService } from '../allcomp.service';
 import { tablesdata } from '../tablesdata';
 import { Config } from 'datatables.net';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeletePopupComponent } from '../sharedcomponents/delete-popup/delete-popup.component';
+import { ComponentService } from '../shared/components/component.service';
 
 @Component({
   selector: 'app-component-types',
@@ -12,8 +12,8 @@ import { DeletePopupComponent } from '../sharedcomponents/delete-popup/delete-po
 })
 export class ComponenttypesComponent implements OnInit{
   
-  tablesdatalist:tablesdata[]=[];
-
+  getAllCompType:any[]=[];
+  
   openEditPopup(content: TemplateRef<any>) {
 		this.modalService.open(content, { centered: true });
 	}
@@ -22,7 +22,7 @@ export class ComponenttypesComponent implements OnInit{
     modalRef.componentInstance.message = message;
   }
   dtOptions: Config = {};
-  constructor(private allcompservice:AllcompService,private modalService: NgbModal){}
+  constructor(private componentService: ComponentService ,private modalService: NgbModal){}
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -33,12 +33,14 @@ export class ComponenttypesComponent implements OnInit{
         searchPlaceholder:'Component Type'
       }
     };
-    this.loadtablesdata();
+    this.loadAllComponentData();
   }
-  loadtablesdata(){
-    this.allcompservice.Loadtablesdata().subscribe(data=>
-    {
-      this.tablesdatalist=data;
+  loadAllComponentData(){
+    this.componentService.getAllComponentTypes().subscribe((res:any) => {
+      if(res.status == 200){
+        console.log(res);
+        this.getAllCompType = res.data;
+      }
     })
   }
   onSubmit() {

@@ -35,24 +35,24 @@
 </div>
 <div class="grey-line"></div>
 <div class="allcomponents-container">
-  <div class="allcomponents-table" *ngIf="tablesdatalist.length>0">
+  <div class="allcomponents-table" *ngIf="getAllComp.length>0">
        <table datatable [dtOptions]="dtOptions" class="table table-striped">
       <thead>
         <tr>
-          <th colspan="5" class="table-heading">All Components</th>
+          <th colspan="4" class="table-heading">All Components</th>
         </tr>
         <tr>
           <th>#</th>
-          <th>Component ID</th>
+          <!-- <th>Component ID</th> -->
           <th>Component Name</th>
-          <th>Update On</th>
+          <th>Created At</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of tablesdatalist; let i = index">
+        <tr *ngFor="let item of getAllComp; let i = index">
           <td>{{i+1}}</td>
-          <td>{{item.component_id}}</td>
+          <!-- <td>{{item.component_id}}</td> -->
           <td>{{item.component_name}}</td>
           <td>{{item.created_at | date:'dd-MMM h:mm a'}}</td>
           <td>

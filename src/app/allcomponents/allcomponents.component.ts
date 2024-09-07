@@ -13,7 +13,7 @@ import { ComponentService } from '../shared/components/component.service';
   })
 export class AllcomponentsComponent implements OnInit{
   
-  tablesdatalist:any[]=[];
+  getAllComp:any[]=[];
  
   openEditPopup(content: TemplateRef<any>) {
 		this.modalService.open(content, { centered: true });
@@ -43,7 +43,7 @@ export class AllcomponentsComponent implements OnInit{
     this.componentService.getAllComponents().subscribe((res:any) => {
       if(res.status == 200){
         console.log(res);
-        this.tablesdatalist = res.data;
+        this.getAllComp = res.data;
       }
     })
   }
