@@ -1,10 +1,10 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { Router } from '@angular/router';
-import { AllcompService } from '../allcomp.service';
 import { tablesdata } from '../tablesdata';
 import { Config } from 'datatables.net';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeletePopupComponent } from '../sharedcomponents/delete-popup/delete-popup.component';
+import { ComponentService } from '../shared/components/component.service';
+
 
 @Component({
   selector: 'app-all-components',
@@ -13,7 +13,7 @@ import { DeletePopupComponent } from '../sharedcomponents/delete-popup/delete-po
   })
 export class AllcomponentsComponent implements OnInit{
   
-  tablesdatalist:tablesdata[]=[];
+  tablesdatalist:any[]=[];
  
   openEditPopup(content: TemplateRef<any>) {
 		this.modalService.open(content, { centered: true });
@@ -24,7 +24,9 @@ export class AllcomponentsComponent implements OnInit{
   }
   
   dtOptions: Config = {};
-  constructor(private allcompservice:AllcompService,private modalService: NgbModal){}
+  constructor(private modalService: NgbModal,
+              private componentService: ComponentService 
+  ){}
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'simple_numbers',
@@ -35,12 +37,14 @@ export class AllcomponentsComponent implements OnInit{
         searchPlaceholder:'Search Component'
       }
     };
-    this.loadtablesdata();
+    this.loadAllComponentData();
   }
-  loadtablesdata(){
-    this.allcompservice.Loadtablesdata().subscribe(data=>
-    {
-      this.tablesdatalist=data;
+  loadAllComponentData(){
+    this.componentService.getAllComponents().subscribe((res:any) => {
+      if(res.status == 200){
+        console.log(res);
+        this.tablesdatalist = res.data;
+      }
     })
   }
   onSubmit() {
