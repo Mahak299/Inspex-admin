@@ -19,7 +19,9 @@ import { AllUsersComponent } from './all-users/all-users.component';
 import { UserLibraryComponent } from './user-library/user-library.component';
 import { UserTemplateComponent } from './user-template/user-template.component';
 import { DeletePopupComponent } from './sharedcomponents/delete-popup/delete-popup.component';
-
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +45,12 @@ import { DeletePopupComponent } from './sharedcomponents/delete-popup/delete-pop
     BrowserModule,
     AppRoutingModule,
     DataTablesModule,
+    FormsModule,
+    BrowserAnimationsModule, // Required for ToastrModule animations
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right', // Position of the toast
+      preventDuplicates: true, // Avoid multiple toasts with the same message
+    }),
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

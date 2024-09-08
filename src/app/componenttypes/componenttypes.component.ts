@@ -1,49 +1,79 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { AllcompService } from '../allcomp.service';
 import { tablesdata } from '../tablesdata';
 import { Config } from 'datatables.net';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeletePopupComponent } from '../sharedcomponents/delete-popup/delete-popup.component';
+import { ComponentService } from '../shared/components/component.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-component-types',
   templateUrl: './componenttypes.component.html',
-  styleUrl: './componenttypes.component.scss'
+  styleUrl: './componenttypes.component.scss',
 })
-export class ComponenttypesComponent implements OnInit{
-  
-  tablesdatalist:tablesdata[]=[];
-
+export class ComponenttypesComponent implements OnInit {
+  getAllCompType: any[] = [];
+  componentType: string = '';
   openEditPopup(content: TemplateRef<any>) {
-		this.modalService.open(content, { centered: true });
-	}
+    this.modalService.open(content, { centered: true });
+  }
   openDeletePopup(message: string) {
-    const modalRef = this.modalService.open(DeletePopupComponent, { centered: true });
+    const modalRef = this.modalService.open(DeletePopupComponent, {
+      centered: true,
+    });
     modalRef.componentInstance.message = message;
   }
   dtOptions: Config = {};
-  constructor(private allcompservice:AllcompService,private modalService: NgbModal){}
+  constructor(
+    private componentService: ComponentService,
+    private modalService: NgbModal,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'simple_numbers',
-      lengthChange:false,
+      lengthChange: false,
       processing: true,
-            language:{
-        searchPlaceholder:'Component Type'
-      }
+      language: {
+        searchPlaceholder: 'Component Type',
+      },
     };
-    this.loadtablesdata();
+    this.loadAllComponentData();
   }
-  loadtablesdata(){
-    this.allcompservice.Loadtablesdata().subscribe(data=>
-    {
-      this.tablesdatalist=data;
-    })
+  loadAllComponentData() {
+    this.componentService.getAllComponentTypes().subscribe((res: any) => {
+      if (res.status == 200) {
+        console.log(res);
+        this.getAllCompType = res.data;
+      }
+    });
+  }
+  onInputChange(value: string) {
+    console.log('saved', value);
+  }
+  submitComponentType() {
+    if (this.componentType.trim() === '') {
+      this.toastr.warning('Please enter component name!');
+      return;
+    }
+    this.componentService
+      .createComponentType({ component_type_name: this.componentType })
+      .subscribe((res: any) => {
+        if (res.status === 200) {
+          this.componentType = '';
+          this.toastr.success('Component Type saved successfully!');
+          this.getAllCompType = [];
+          this.loadAllComponentData();
+        } else if (res.status === 409) {
+          this.toastr.error('Component Type already Exist!');
+        } else {
+          this.toastr.error('Something went wrong!');
+        }
+      });
   }
   onSubmit() {
     console.log('Saved changes');
     this.modalService.dismissAll();
   }
 }
-

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/styles/mixins.scss";
+@import 'ngx-toastr/toastr';
 html {
 
     @include fluid-type(320px, 1920px, 2560px, 10px, 16px, 20px);
