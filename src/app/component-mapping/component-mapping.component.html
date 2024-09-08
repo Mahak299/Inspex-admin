@@ -26,22 +26,14 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Component Name
+                  {{selectedComponentName}}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownLeft">
-                  <li>
-                    <button class="dropdown-item" type="button">Action</button>
+                  <li *ngFor="let item of getAllComponentName">
+                    <button class="dropdown-item" type="button" (click)="setComponentName(item.component_name,item.component_id)">
+                      {{item.component_name}}</button>
                   </li>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      Another action
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      Something else here
-                    </button>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
@@ -58,20 +50,12 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Component Type
+                  {{selectedComponentType}}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMiddle">
-                  <li>
-                    <button class="dropdown-item" type="button">Action</button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      Another action
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      Something else here
+                  <li *ngFor="let item of getComponentType">
+                    <button class="dropdown-item" type="button" (click)="setComponentType(item.component_type_name,item.component_type_id)">
+                      {{item.component_type_name}}
                     </button>
                   </li>
                 </ul>
@@ -90,20 +74,12 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Component Variation
+                 {{selectedComponentVariation}}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownRight">
-                  <li>
-                    <button class="dropdown-item" type="button">Action</button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      Another action
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      Something else here
+                 <li *ngFor="let item of getComponentVariation">
+                    <button class="dropdown-item" type="button" (click)="setComponentVariation(item.component_variant_name,item.component_variant_id)">
+                    {{item.component_variant_name}}
                     </button>
                   </li>
                 </ul>
@@ -113,7 +89,7 @@
             <!-- Submit Button to the Right -->
           </div>
           <div class="">
-            <button type="button" class="btn btn-primary mt-4">Submit</button>
+            <button type="button" class="btn btn-primary mt-4" (click)="onSubmitMapping()">Submit</button>
           </div>
         </div>
       </div>

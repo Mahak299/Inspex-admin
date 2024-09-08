@@ -30,4 +30,16 @@ export class ComponentService {
   getAllDefaultTemplate(){
     return this.http.get(env.apiURL+'/component-default-template/all')
   }
+  createComponentName(params:any){
+    return this.http.post(env.apiURL+'/component/create',params);
+  }
+  createComponentType(params:any){
+    return this.http.post(env.apiURL+'/component-types/create',params);
+  }
+  createComponentVariant(params:any){
+    return this.http.post(env.apiURL+'/component-variant/create',params);
+  }
+  createComponentMapping(params:any){
+    return this.http.post(env.apiURL+'/component-mapping/create',params);
+  }
 }

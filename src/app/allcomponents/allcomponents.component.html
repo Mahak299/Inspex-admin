@@ -21,11 +21,13 @@
                 type="text"
                 class="form-control"
                 placeholder="Enter text here"
+                [(ngModel)]="componentName"
+                (ngModelChange)="onInputChange($event)"
               />
             </div>
             <!-- Button on the right side -->
             <div class="col-md-4">
-              <button class="btn btn-primary">Submit</button>
+              <button class="btn btn-primary" (click)="submitComponentName()">Submit</button>
             </div>
           </div>
         </div>
