@@ -14,10 +14,10 @@ import { ToastrService } from 'ngx-toastr';
 export class AllcomponentsComponent implements OnInit {
   getAllComp: any[] = [];
   componentName: string = '';
+  editComponentName: string = '';
+  editComponentId: number=0;
 
-  openEditPopup(content: TemplateRef<any>) {
-    this.modalService.open(content, { centered: true });
-  }
+  
   openDeletePopup(message: string) {
     const modalRef = this.modalService.open(DeletePopupComponent, {
       centered: true,
@@ -74,8 +74,13 @@ export class AllcomponentsComponent implements OnInit {
         }
       });
   }
-  onSubmit() {
-    console.log('Saved changes');
+  openEditPopup(content: TemplateRef<any>,item:any) {
+    this.editComponentName = item.component_name;
+    this.editComponentId = item.component_id;
+    this.modalService.open(content, { centered: true });
+  }
+  onSubmitEdit() {
+    console.log(this.editComponentId,this.editComponentName);
     this.modalService.dismissAll();
   }
 }

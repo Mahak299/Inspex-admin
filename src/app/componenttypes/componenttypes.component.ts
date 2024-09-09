@@ -14,9 +14,9 @@ import { ToastrService } from 'ngx-toastr';
 export class ComponenttypesComponent implements OnInit {
   getAllCompType: any[] = [];
   componentType: string = '';
-  openEditPopup(content: TemplateRef<any>) {
-    this.modalService.open(content, { centered: true });
-  }
+  editComponentType:string='';
+  editComponentTypeId:number=0;
+  
   openDeletePopup(message: string) {
     const modalRef = this.modalService.open(DeletePopupComponent, {
       centered: true,
@@ -72,8 +72,13 @@ export class ComponenttypesComponent implements OnInit {
         }
       });
   }
-  onSubmit() {
-    console.log('Saved changes');
+  openEditPopup(content: TemplateRef<any>,item:any) {
+    this.editComponentType=item.component_type_name;
+    this.editComponentTypeId=item.component_type_id;
+    this.modalService.open(content, { centered: true });
+  }
+  onSubmitEdit() {
+    console.log(this.editComponentTypeId,this.editComponentType);
     this.modalService.dismissAll();
   }
 }

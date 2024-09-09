@@ -15,9 +15,8 @@ export class ComponentvariationsComponent implements OnInit {
   show = true;
   getAllCompVariant: any[] = [];
   componentVariant: string = '';
-  openEditPopup(content: TemplateRef<any>) {
-    this.modalService.open(content, { centered: true });
-  }
+  editComponentVariation:string='';
+  editComponentVariationId:number=0;
   openDeletePopup(message: string) {
     const modalRef = this.modalService.open(DeletePopupComponent, {
       centered: true,
@@ -75,8 +74,13 @@ export class ComponentvariationsComponent implements OnInit {
         }
       });
   }
-  onSubmit() {
-    console.log('Saved changes');
+  openEditPopup(content: TemplateRef<any>,item:any) {
+    this.editComponentVariation=item.component_variant_name;
+    this.editComponentVariationId=item.component_variant_id;
+    this.modalService.open(content, { centered: true });
+  }
+  onSubmitEdit() {
+    console.log(this.editComponentVariation,this.editComponentVariationId);
     this.modalService.dismissAll();
   }
 }
