@@ -67,7 +67,7 @@
             <button
               type="button"
               class="btn btn-warning actions"
-              (click)="openEditPopup(content)"
+              (click)="openEditPopup(content,item)"
             >
               Edit
             </button>
@@ -100,7 +100,7 @@
   </div>
   <div class="modal-body">
     <p>
-      <input type="text" class="form-control" placeholder="Enter text here" />
+      <input type="text" class="form-control" [(ngModel)]="editComponentVariation"/>
     </p>
   </div>
   <div class="modal-footer">
@@ -111,7 +111,7 @@
     >
       Cancel
     </button>
-    <button type="button" class="btn btn-success" (click)="onSubmit()">
+    <button type="button" class="btn btn-success" (click)="onSubmitEdit()">
       Update
     </button>
   </div>
