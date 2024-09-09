@@ -23,6 +23,8 @@
                 class="form-control"
                 id="exampleInput"
                 placeholder="Type component heading"
+                [(ngModel)]="componentHeading"
+                (ngModelChange)="onInputChange($event)"
               />
             </div>
           </div>
@@ -37,6 +39,8 @@
                 id="componentSubheading"
                 rows="2"
                 placeholder="Type Component subheading"
+                [(ngModel)]="componentSubheading"
+                (ngModelChange)="onInputChange($event)"
               ></textarea>
             </div>
 
@@ -50,6 +54,8 @@
                 id="componentDescription"
                 rows="6"
                 placeholder="Type Component description"
+                [(ngModel)]="componentDescription"
+                (ngModelChange)="onInputChange($event)"
               ></textarea>
             </div>
           </div>
@@ -66,22 +72,15 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Component Name
+                 {{selectedComponentName}}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownLeft">
-                  <li>
-                    <button class="dropdown-item" type="button">Action</button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      Another action
+                  <li *ngFor="let item of getAllComponentName">
+                    <button class="dropdown-item" type="button" (click)="setComponentName(item.component_name,item.component_id)">
+                      {{item.component_name}}
                     </button>
                   </li>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      Something else here
-                    </button>
-                  </li>
+                 
                 </ul>
               </div>
             </div>
@@ -98,22 +97,15 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Component Type
+                  {{selectedComponentType}}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMiddle">
-                  <li>
-                    <button class="dropdown-item" type="button">Action</button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      Another action
+                  <li *ngFor="let item of getComponentType">
+                    <button class="dropdown-item" type="button" (click)="setComponentType(item.component_type_name,item.component_type_id)">
+                      {{item.component_type_name}}
                     </button>
                   </li>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      Something else here
-                    </button>
-                  </li>
+                
                 </ul>
               </div>
             </div>
@@ -130,23 +122,16 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Component Variation
+                 {{selectedComponentVariation}}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownRight">
-                  <li>
-                    <button class="dropdown-item" type="button">Action</button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      Another action
+                  <li *ngFor="let item of getComponentVariation">
+                    <button class="dropdown-item" type="button" (click)="setComponentVariation(item.component_variant_name,item.component_variant_id)">
+                    {{item.component_variant_name}}
                     </button>
                   </li>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      Something else here
-                    </button>
-                  </li>
-                </ul>
+                  
+                    </ul>
               </div>
             </div>
 
@@ -154,7 +139,7 @@
           </div>
 
           <div class="">
-            <button type="button" class="btn btn-primary mt-4">Submit</button>
+            <button type="button" class="btn btn-primary mt-4" (click)="onSubmitDocs()">Submit</button>
           </div>
         </div>
       </div>

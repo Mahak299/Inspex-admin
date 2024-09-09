@@ -42,4 +42,10 @@ export class ComponentService {
   createComponentMapping(params:any){
     return this.http.post(env.apiURL+'/component-mapping/create',params);
   }
+  createComponentDocs(params:any){
+    return this.http.post(env.apiURL+'/component-docs/create',params);
+  }
+  createDefaultTemplate(params:any){
+    return this.http.post(env.apiURL+'component-default-template/create',params);
+  }
 }
