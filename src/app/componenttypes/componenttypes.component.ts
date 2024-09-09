@@ -54,7 +54,7 @@ export class ComponenttypesComponent implements OnInit {
   }
   submitComponentType() {
     if (this.componentType.trim() === '') {
-      this.toastr.warning('Please enter component name!');
+      this.toastr.warning('Please enter component type!');
       return;
     }
     this.componentService
