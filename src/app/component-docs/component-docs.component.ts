@@ -26,10 +26,16 @@ export class ComponentDocsComponent implements OnInit {
   componentHeading: string = '';
   componentSubheading: string = '';
   componentDescription: string = '';
-
-  openEditPopup(content: TemplateRef<any>) {
-    this.modalService.open(content, { centered: true, size: 'xl' });
-  }
+  editComponentName:string='';
+  editComponentType:string='';
+  editComponentVariation:string='';
+  editComponentTypeId:number=0;
+  editComponentVariationId:number=0;
+  editComponentId:number=0;
+  editComponentHeading:string='';
+  editComponentSubHeading:string='';
+  editComponentDescription:string='';
+  
   openDeletePopup(message: string) {
     const modalRef = this.modalService.open(DeletePopupComponent, {
       centered: true,
@@ -68,6 +74,21 @@ export class ComponentDocsComponent implements OnInit {
     console.log(name, id);
     this.selectedComponentVariation = name;
     this.componentVariationId = id;
+  }
+  editComponentVariations(name: any, id: any) {
+    console.log(name, id);
+    this.editComponentVariation = name;
+    this.editComponentVariationId = id;
+  }
+  editComponentTypes(name: any, id: any) {
+    console.log(name, id);
+    this.editComponentType = name;
+    this.editComponentTypeId = id;
+  }
+  editComponentNames(name: any, id: any) {
+    console.log(name, id);
+    this.editComponentName = name;
+    this.editComponentId = id;
   }
   loadAllComponentData() {
     this.componentService.getAllComponents().subscribe((res: any) => {
@@ -150,8 +171,23 @@ export class ComponentDocsComponent implements OnInit {
     this.selectedComponentType = 'Component Type';
     this.selectedComponentVariation = 'Component Variation';
   }
-  onSubmit() {
-    console.log('Saved changes');
+
+  openEditPopup(content: TemplateRef<any>,item:any) {
+  this.editComponentName=item.components.component_name;
+  this.editComponentId=item.components.component_id;
+  this.editComponentType=item.component_types.component_type_name;
+  this.editComponentTypeId=item.component_types.component_type_id;
+  this.editComponentVariation=item.component_variant.component_variant_name;
+  this.editComponentVariationId=item.component_variant.component_variant_id;
+  this.editComponentHeading= item.component_heading;
+  this.editComponentSubHeading=item.component_subheading;
+  this.editComponentDescription=JSON.stringify(item.component_details);
+    this.modalService.open(content, { centered: true, size: 'xl' });
+  }
+  onSubmitEdit() {
+    console.log(this.editComponentHeading,this.editComponentSubHeading,this.editComponentDescription,this.editComponentName,this.editComponentId,this.editComponentType,this.editComponentTypeId,
+      this.editComponentVariation,this.editComponentVariationId
+    );
     this.modalService.dismissAll();
   }
 }
