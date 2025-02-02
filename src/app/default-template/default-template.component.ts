@@ -136,7 +136,7 @@ export class DefaultTemplateComponent implements OnInit {
       return;
     }
     const payload = {
-      default_template:JSON.parse(this.defaultTemplate),
+      default_template:JSON.parse(this.defaultTemplate.trim()),
       component_config:JSON.parse(this.componentConfig),
       component_id: this.componentId,
       component_type_id: this.componentTypeId,
@@ -167,7 +167,7 @@ export class DefaultTemplateComponent implements OnInit {
     this.componentConfig='';
     this.selectedComponentName='Component Name';
     this.selectedComponentType='Component Type';
-  this.selectedComponentVariation= 'Component Variation';
+    this.selectedComponentVariation= 'Component Variation';
   }
   openEditPopup(content: TemplateRef<any>,item:any) {
   this.editComponentName=item.components.component_name;
@@ -176,8 +176,8 @@ export class DefaultTemplateComponent implements OnInit {
   this.editComponentTypeId=item.component_types.component_type_id;
   this.editComponentVariation=item.component_variant.component_variant_name;
   this.editComponentVariationId=item.component_variant.component_variant_id;
-  this.editDefaultTemplate= JSON.stringify(item.default_template);
-  this.editComponentConfig=JSON.stringify(item.component_config);
+  this.editDefaultTemplate=item.default_template;
+  this.editComponentConfig=item.component_config;
  
     this.modalService.open(content, { centered: true, size: 'lg' });
   }
