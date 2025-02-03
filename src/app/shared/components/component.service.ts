@@ -48,4 +48,13 @@ export class ComponentService {
   createDefaultTemplate(params:any){
     return this.http.post(env.apiURL+'component-default-template/create',params);
   }
+
+  delete(apiName:any, params:any){
+    return this.http.post(env.apiURL+apiName+'/delete',params);
+  }
+
+  update(apiName:any, params:any){
+    return this.http.post(env.apiURL+apiName+'/update',params);
+  }
+
 }

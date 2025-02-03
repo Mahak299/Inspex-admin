@@ -176,8 +176,8 @@ export class DefaultTemplateComponent implements OnInit {
   this.editComponentTypeId=item.component_types.component_type_id;
   this.editComponentVariation=item.component_variant.component_variant_name;
   this.editComponentVariationId=item.component_variant.component_variant_id;
-  this.editDefaultTemplate=item.default_template;
-  this.editComponentConfig=item.component_config;
+  this.editDefaultTemplate=JSON.stringify(item.default_template);
+  this.editComponentConfig=JSON.stringify(item.component_config);
  
     this.modalService.open(content, { centered: true, size: 'lg' });
   }

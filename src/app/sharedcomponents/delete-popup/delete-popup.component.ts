@@ -1,4 +1,4 @@
-import { Component, Input, TemplateRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -9,7 +9,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class DeletePopupComponent {
   @Input() message:any;
+  @Output() onSubmit = new EventEmitter<boolean>();
   constructor(public activeModal: NgbActiveModal) {}
   
+  confirmDelete(){
+    this.onSubmit.emit(true);
+  }
+
    
 }

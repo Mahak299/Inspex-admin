@@ -57,9 +57,9 @@
           <!-- <td>{{item.component_id}}</td> -->
           <td>{{item.component_name}}</td>
           <td>{{item.created_at | date:'dd-MMM h:mm a'}}</td>
-          <td>
+          <td> 
             <button type="button" class="btn btn-warning actions"(click)="openEditPopup(content,item)">Edit</button>
-            <button type="button" class="btn btn-danger actions" (click)="openDeletePopup('Are you sure you want to delete this component?')">Delete</button>
+            <button type="button" class="btn btn-danger actions" (click)="openDeletePopup('Are you sure you want to delete this component?', item)">Delete</button>
           </td>
         </tr>
         </tbody>

@@ -17,11 +17,26 @@ export class ComponenttypesComponent implements OnInit {
   editComponentType:string='';
   editComponentTypeId:number=0;
   
-  openDeletePopup(message: string) {
+  openDeletePopup(message: string, item:any) {
     const modalRef = this.modalService.open(DeletePopupComponent, {
       centered: true,
     });
     modalRef.componentInstance.message = message;
+    modalRef.componentInstance.onSubmit.subscribe((res: any) => {
+      if(res){
+        this.componentService.delete('component-type', {component_type_id: item.component_type_id}).subscribe((res: any) => {
+          if (res.status === 200) {
+            this.toastr.success('Component Type deleted successfully!');
+            this.getAllCompType = [];
+            this.loadAllComponentData();
+  
+          } else {
+            this.toastr.error('Something went wrong!');
+          }
+          modalRef.dismiss()  
+        });
+      }
+    })
   }
   dtOptions: Config = {};
   constructor(
@@ -77,8 +92,16 @@ export class ComponenttypesComponent implements OnInit {
     this.editComponentTypeId=item.component_type_id;
     this.modalService.open(content, { centered: true });
   }
-  onSubmitEdit() {
-    console.log(this.editComponentTypeId,this.editComponentType);
-    this.modalService.dismissAll();
+  onSubmitEdit() { 
+    this.componentService.update('component-type', {component_type_id: this.editComponentTypeId, component_type_name: this.editComponentType}).subscribe((res: any) => {
+      if(res.status === 200){
+        this.toastr.success("Component Name updated successfully!");
+        this.modalService.dismissAll();
+        this.getAllCompType = [];
+        this.loadAllComponentData();
+      }else{
+        this.toastr.error("Something went wrong!");
+      }
+    });
   }
 }

@@ -17,12 +17,24 @@ export class ComponentvariationsComponent implements OnInit {
   componentVariant: string = '';
   editComponentVariation:string='';
   editComponentVariationId:number=0;
-  openDeletePopup(message: string) {
+  openDeletePopup(message: string, item:any) {
     const modalRef = this.modalService.open(DeletePopupComponent, {
       centered: true,
     });
     modalRef.componentInstance.message = message;
-  }
+    modalRef.componentInstance.onSubmit.subscribe((res: any) => {
+      this.componentService.delete('component-variant', {component_variant_id: item.component_variant_id}).subscribe((res: any) => {
+        if (res.status === 200) {
+          this.toastr.success('Component Variation deleted successfully!');
+          this.getAllCompVariant = [];
+          this.loadAllComponentData();
+        } else {
+          this.toastr.error('Something went wrong!');
+        }
+        modalRef.dismiss();
+    });
+  });
+}
 
   dtOptions: Config = {};
   constructor(
@@ -79,8 +91,16 @@ export class ComponentvariationsComponent implements OnInit {
     this.editComponentVariationId=item.component_variant_id;
     this.modalService.open(content, { centered: true });
   }
-  onSubmitEdit() {
-    console.log(this.editComponentVariation,this.editComponentVariationId);
-    this.modalService.dismissAll();
+  onSubmitEdit() { 
+    this.componentService.update('component-variant', {component_variant_id: this.editComponentVariationId, component_variant_name: this.editComponentVariation}).subscribe((res: any) => {
+      if(res.status === 200){
+        this.toastr.success("Component Name updated successfully!");
+        this.modalService.dismissAll();
+        this.getAllCompVariant = [];
+        this.loadAllComponentData();
+      }else{
+        this.toastr.error("Something went wrong!");
+      }
+    });
   }
 }

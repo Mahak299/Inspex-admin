@@ -16,21 +16,15 @@ export class AllcomponentsComponent implements OnInit {
   componentName: string = '';
   editComponentName: string = '';
   editComponentId: number=0;
-
-  
-  openDeletePopup(message: string) {
-    const modalRef = this.modalService.open(DeletePopupComponent, {
-      centered: true,
-    });
-    modalRef.componentInstance.message = message;
-  }
-
   dtOptions: Config = {};
+ 
   constructor(
     private modalService: NgbModal,
     private componentService: ComponentService,
     private toastr: ToastrService
   ) {}
+
+
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'simple_numbers',
@@ -43,6 +37,7 @@ export class AllcomponentsComponent implements OnInit {
     };
     this.loadAllComponentData();
   }
+
   loadAllComponentData() {
     this.componentService.getAllComponents().subscribe((res: any) => {
       if (res.status == 200) {
@@ -51,9 +46,11 @@ export class AllcomponentsComponent implements OnInit {
       }
     });
   }
+
   onInputChange(value: string) {
     console.log('saved', value);
   }
+
   submitComponentName() {
     if (this.componentName.trim() === '') {
       this.toastr.warning('Please enter component name!');
@@ -74,13 +71,46 @@ export class AllcomponentsComponent implements OnInit {
         }
       });
   }
+
   openEditPopup(content: TemplateRef<any>,item:any) {
     this.editComponentName = item.component_name;
     this.editComponentId = item.component_id;
     this.modalService.open(content, { centered: true });
   }
-  onSubmitEdit() {
+
+  onSubmitEdit() { 
     console.log(this.editComponentId,this.editComponentName);
-    this.modalService.dismissAll();
+    this.componentService.update('component', {component_id: this.editComponentId, component_name: this.editComponentName}).subscribe((res: any) => {
+      if(res.status === 200){
+        this.toastr.success("Component Name updated successfully!");
+        this.modalService.dismissAll();
+        this.getAllComp = [];
+        this.loadAllComponentData();
+      }else{
+        this.toastr.error("Something went wrong!");
+      }
+    });
+  }
+  
+  openDeletePopup(message: string, item:any) {
+    const modalRef = this.modalService.open(DeletePopupComponent, {
+      centered: true,
+    });
+    modalRef.componentInstance.message = message;
+    modalRef.componentInstance.onSubmit.subscribe((res: any) => {
+      if(res) {
+        this.componentService.delete('component', { component_id: item.component_id }).subscribe((res: any) => {
+          if (res.status === 200) {
+            this.toastr.success('Component Name deleted successfully!');
+            this.getAllComp = [];
+            this.loadAllComponentData();
+  
+          } else {
+            this.toastr.error('Something went wrong!');
+          }
+          modalRef.dismiss()
+        })
+      }
+    })
   }
 }
